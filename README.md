@@ -1,6 +1,6 @@
 # Mobile Web Specialist Certification Course
 
-##Purpose
+## Purpose
 
 - Site should be responsive
 - Accessibilty
