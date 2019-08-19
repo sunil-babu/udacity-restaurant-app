@@ -1,0 +1,27 @@
+{
+  "name": "udacity-restaurant-app",
+  "version": "1.0.0",
+  "description": "Udacity Restuarant App",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sunil-babu/udacity-restaurant-app.git"
+  },
+  "author": "SUNIL BABU",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sunil-babu/udacity-restaurant-app/issues"
+  },
+  "homepage": "https://github.com/sunil-babu/udacity-restaurant-app#readme",
+  "devDependencies": {
+    "grunt": "^1.0.4",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-mkdir": "^1.0.0",
+    "grunt-responsive-images": "^1.10.1"
+  }
+}

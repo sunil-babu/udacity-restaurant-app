@@ -4,6 +4,18 @@ let restaurants,
 var newMap
 var markers = []
 
+//Registering Service worket
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js', { scope: '' })
+     .then(function(reg) {
+      // registration worked
+      console.log('Registration succeeded. Scope is ' + reg.scope);
+      }).catch(function(error) {
+      // registration failed
+      console.log('Registration failed with ' + error);
+      });
+}
+
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
@@ -160,7 +172,10 @@ createRestaurantHTML = (restaurant) => {
 
   const image = document.createElement('img');
   image.className = 'restaurant-img';
+  image.alt = `Picture of ${restaurant.name}`;
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.srcset = DBHelper.imageSrcsetForRestaurant(restaurant);
+  image.sizes = DBHelper.imageSizesForRestaurant(restaurant);
   li.append(image);
 
   const name = document.createElement('h1');
@@ -177,6 +192,8 @@ createRestaurantHTML = (restaurant) => {
 
   const more = document.createElement('a');
   more.innerHTML = 'View Details';
+  more.setAttribute('aria-label', `Details about ${restaurant.name}`);
+  more.setAttribute('tabindex', '3');
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
 
@@ -198,6 +215,7 @@ addMarkersToMap = (restaurants = self.restaurants) => {
   });
 
 }
+
 /* addMarkersToMap = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
     // Add marker to the map
